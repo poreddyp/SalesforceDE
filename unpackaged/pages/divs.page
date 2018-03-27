@@ -1,0 +1,14 @@
+<apex:page >
+
+<div>
+<apex:iframe src="http://www.google.com" scrolling="true" id="theIframe"/>
+</div>
+
+<div style="float:left; position:absolute;">
+    <h3>Text float left</h3>
+</div>
+<div style="float:right; position:relative;">
+    <h3>Text float right</h3>
+
+</div>
+</apex:page>

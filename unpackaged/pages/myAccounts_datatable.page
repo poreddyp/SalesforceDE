@@ -1,0 +1,158 @@
+<apex:page controller="AccountCtrl" sidebar="true" showHeader="true" standardStylesheets="false"> 
+
+<style type="text/css">
+
+    .required label:after {
+        content: " *";
+        color: red;
+    }
+    
+</style>
+    
+    <apex:includeScript value="{!$Resource.bootstrapmin}"/>
+    <link rel="stylesheet" href="{!$Resource.bootstrapcss}" media="all"/>
+
+
+
+<apex:form >
+
+<div class="row">
+
+<div class="bs column col-xs-1">
+    <h2>
+         Beautiful user interface with bootstrap
+    </h2>
+    <br/>
+    
+    First Name : <input type="text" class="form-control required"/>
+    Last Name : <input type="text" class="form-control"/>
+    Degree : <input type="text" class="form-control"/>
+    Comments : <input type="text" class="form-control"/>
+    
+    <apex:commandButton styleClass=" btn" value="Submit" />
+    <button type="button" class="btn btn-primary">Primary</button>
+
+</div>
+
+<div class="bs column col-xs-11">    
+<apex:dataTable value="{!MyAccounts}" var="account" id="theTable" rowClasses="odd,even" styleClass="table table-condensed table-hover table-responsive">
+    <apex:facet name="caption">table caption</apex:facet>
+    <apex:facet name="header">table header</apex:facet>
+    <apex:facet name="footer">table footer</apex:facet>
+    <apex:column >
+        <apex:facet name="header">Name</apex:facet>
+        <apex:facet name="footer">column footer</apex:facet>
+        <apex:outputField value="{!account.name}"/>
+    </apex:column>
+        <apex:column >
+        <apex:facet name="header">Name</apex:facet>
+        <apex:facet name="footer">column footer</apex:facet>
+        <apex:outputLink value="/{!account.ID}">{!account.name}</apex:outputLink>
+    </apex:column>
+</apex:dataTable>
+</div>
+</div>
+
+
+</apex:form>
+</apex:page>
+<!--
+<style>
+
+    margin-top: {
+     1.5in;
+    }
+          
+    div.header {
+      position: running(header);
+    }
+    
+    div.SearchCriteria {
+    overflow-y: auto;
+    }
+
+</style>
+<apex:form >
+
+ <div class="header">
+    <br/> 
+    <left><img src="https://www.theoakleafgroup.com/sites/default/files/logo_0.gif" width="15%"/></left>
+    <br/>
+    <br/>
+  </div>
+
+ <div class="SearchCriteria">
+<apex:pageBlock title="Third Party Review (TPR) Loan Grading">
+<apex:pageBlockSection columns="3" title="Report Generated For:">
+        <apex:outputText value="Rating Agency: Fitch"></apex:outputText>
+        <apex:outputText value="Issuer: Nationwide"></apex:outputText>
+        <apex:outputText value="Trust: NVMLT 2017-4B"></apex:outputText>
+        <apex:outputText value="Trustee: Wells Fargo Bank"></apex:outputText>
+        <apex:outputText value="Collateral Type: RMBS"></apex:outputText>
+        <apex:outputText value="Collateral Grade: Prime"></apex:outputText>
+</apex:pageBlockSection>
+</apex:pageBlock>
+</div>
+
+<apex:pageBlock >
+<apex:pageBlockTable value="{!MyAccounts}" var="myAccts">
+
+         <apex:column value="{!myAccts.Id}"></apex:column>
+         
+         <apex:column value="{!myAccts.Name}"></apex:column>
+            
+        <apex:column >
+        <apex:facet name="header"><br>Fitch</br><br>Compliance</br><br>Initital Grade</br></apex:facet>
+        <apex:outputText value="{!IF(CONTAINS(myAccts.Name, "F"),"A","B")}"/></apex:column>
+        
+        <apex:column >
+        <apex:facet name="header"><br>Fitch</br><br>Credit</br><br>Initial Grade</br></apex:facet>
+        <apex:outputText value="{!IF(CONTAINS(myAccts.Name, "I"),"B","C")}"/></apex:column>
+        
+        <apex:column >
+        <apex:facet name="header"><br>Fitch</br><br>Property</br><br>Initial Grade</br></apex:facet>
+        <apex:outputText value="{!IF(CONTAINS(myAccts.Name, "T"),"A","C")}"/></apex:column>
+
+        <apex:column style="font-weight:bold">
+        <apex:facet name="header"><br>Fitch</br><br>Overall</br><br>Initial Grade</br></apex:facet>
+        <apex:outputText value="{!IF(CONTAINS(myAccts.Name, "T"),"A","C")}"/></apex:column>
+
+        <apex:column >
+        <apex:facet name="header"><br>Fitch</br><br>Compliance</br><br>Final Grade</br></apex:facet>
+        <apex:outputText value="{!IF(CONTAINS(myAccts.Name, "F"),"A","A")}"/></apex:column>
+        
+        <apex:column >
+        <apex:facet name="header"><br>Fitch</br><br>Credit</br><br>Final Grade</br></apex:facet>
+        <apex:outputText value="{!IF(CONTAINS(myAccts.Name, "I"),"A","B")}"/></apex:column>
+        
+        <apex:column >
+        <apex:facet name="header"><br>Fitch</br><br>Property</br><br>Final Grade</br></apex:facet>
+        <apex:outputText value="{!IF(CONTAINS(myAccts.Name, "T"),"A","B")}"/></apex:column>
+
+        <apex:column style="font-weight:bold">
+        <apex:facet name="header"><br>Fitch</br><br>Overall</br><br>Final Grade</br></apex:facet>
+        <apex:outputText value="{!IF(CONTAINS(myAccts.Name, "T"),"A","B")}"/></apex:column>
+
+    </apex:pageBlockTable>
+</apex:pageBlock>
+
+
+</apex:form>
+</apex:page>
+
+   <!-- <apex:pageBlock title="Account List">
+        <apex:pageBlockTable value="{!MyAccounts}" var="myAccts">
+            <apex:column value="{!myAccts.Id}"></apex:column>
+            <apex:column value="{!myAccts.Name}"></apex:column>
+        </apex:pageBlockTable>
+        
+head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+
+
+    -->

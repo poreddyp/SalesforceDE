@@ -1,0 +1,23 @@
+<apex:page controller="ListsMapsController">
+    <apex:outputPanel id="box" layout="block">
+        <apex:pageMessages />
+        <apex:form >
+
+            <!--<apex:repeat value="{!inputFields}" var="fieldKey">-->
+                <!--<apex:outputText value="{!fieldKey}"/>:-->
+                <!--<apex:inputText value="{!inputFields[fieldKey]}"/><br/>-->
+            <!--</apex:repeat>-->
+            <apex:inputText value="{!inputFields['age']}" label="age"></apex:inputText>
+            <apex:inputText value="{!inputFields['firstName']}"></apex:inputText>
+            <apex:inputText value="{!inputFields['lastName']}"></apex:inputText>
+            <apex:inputText value="{!inputFields['testField']}"></apex:inputText>
+
+            <apex:commandButton action="{!submitFieldData}"
+                                value="Submit" id="button" rerender="box"/>
+
+            <apex:outputText value="{!inputFields['result']}"></apex:outputText>
+
+
+        </apex:form>
+    </apex:outputPanel>
+</apex:page>

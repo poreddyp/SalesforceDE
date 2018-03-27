@@ -1,0 +1,38 @@
+<apex:page controller="popup">
+    <apex:form >
+        <apex:commandButton value="Show Pop up" onclick="popupWindow"/>
+        
+        <apex:pageBlock >
+            Lorem ipsum ..... dummy stuff to show the popup is above content
+        </apex:pageBlock>
+
+<script>
+popupWindow(){
+Window.open('/helloworld');
+}
+ok(){
+Window.close();
+}
+</script>
+
+    </apex:form>
+
+    <style type="text/css">
+       .customPopup{
+            background-color: white;
+            border-style: solid;
+            border-width: 2px;
+            left: 50%;
+            padding:10px;
+            position: absolute;
+            z-index: 9999;
+            /* These are the 3 css properties you will need to tweak so the pop 
+            up displays in the center of the screen. First set the width. Then set 
+            margin-left to negative half of what the width is. You can also add 
+            the height property for a fixed size pop up.*/
+            width: 500px;
+            margin-left: -250px;
+            top:100px;
+        }
+    </style>
+</apex:page>

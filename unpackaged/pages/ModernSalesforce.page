@@ -1,0 +1,28 @@
+<apex:page standardStylesheets="false" sidebar="false"
+ showHeader="false" applyBodyTag="false" applyHtmlTag="false"
+ docType="html-5.0" controller="ModernSalesforce">
+  <html>
+    <head>
+      <meta charset="utf-8" />
+      <title>ModernSalesforce</title>
+      <base href="/" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+      <!-- App Root -->
+      <app-root>Loading...</app-root><!-- / App Root -->
+      <!-- Scripts -->
+      <script src="/soap/ajax/21.0/connection.js"></script>
+      <script src="/soap/ajax/21.0/apex.js"></script>
+      <script type="text/javascript">
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+      </script>
+
+      <script src="{!URLFOR($Resource.ModernSalesforce, 'inline.bundle.js')}"></script>
+      <script src="{!URLFOR($Resource.ModernSalesforce, 'main.bundle.js')}"></script>
+      <script src="{!URLFOR($Resource.ModernSalesforce, 'polyfills.bundle.js')}"></script>
+      <script src="{!URLFOR($Resource.ModernSalesforce, 'styles.bundle.js')}"></script>
+      <script src="{!URLFOR($Resource.ModernSalesforce, 'vendor.bundle.js')}"></script>
+    </body>
+  </html>
+</apex:page>

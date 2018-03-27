@@ -1,0 +1,11 @@
+<apex:page controller="PrabTestController" >
+    <apex:pageBlock >
+        <apex:form >
+
+            <!--<apex:OutputText value="{!result}" id="output"></apex:OutputText>-->
+            <!--<apex:commandButton action="{!deriveString}" value="Show concatenated string"/>-->
+            <!--<apex:InputField value="{!result}"></apex:InputField>-->
+            <!--<apex:commandButton action="{!deriveString}" value="Show concatenated string"/>-->
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>
